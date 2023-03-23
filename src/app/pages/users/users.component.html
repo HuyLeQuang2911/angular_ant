@@ -1,22 +1,85 @@
-<nz-table #basicTable [nzData]="users">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Age</th>
-    <th>Address</th>
-    <th>Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let data of basicTable.data">
-    <td>{{data.userId}}</td>
-    <td>{{data.userName}}</td>
-    <td>{{data.fullName}}</td>
-    <td>
-      <a>Action 一 {{data.userName}}</a>
-      <nz-divider nzType="vertical"></nz-divider>
-      <a>Delete</a>
-    </td>
-  </tr>
-  </tbody>
-</nz-table>
+<nz-card>
+
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24"  nzRequired>Username</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+        <input nz-input type="text" formControlName="userName"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input formControlName="email" id="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24"  nzRequired>Password</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+        <input nz-input type="password"  formControlName="password"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24"  nzRequired>Phone</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+        <input nz-input type="text"  formControlName="phone"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24"  nzRequired>Age</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+        <input nz-input type="number"  formControlName="age"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24"  nzRequired>fullName</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+        <input nz-input type="text"  formControlName="fullName"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary">Register</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+
+</nz-card>
+
+<br/>
+
+<nz-card>
+
+  <nz-table #basicTable [nzData]="users">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{data.userId}}</td>
+      <td>{{data.userName}}</td>
+      <td>{{data.fullName}}</td>
+      <td>
+        <a>Action 一 {{data.userName}}</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+</nz-card>
+
+

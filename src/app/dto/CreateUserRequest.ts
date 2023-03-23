@@ -1,11 +1,10 @@
-export interface User {
-  userId: number
+export interface CreateUserRequest {
+
   userName: string
   encrytedPassword: string
-  enabled: boolean
   age: number
   email: string
   phone: string
   fullName: string
-  createOn : Date
+
 }
